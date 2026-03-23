@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de Agendamento</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topo">
+    <h1>Painel de Agendamento</h1>
+    <p>Gestão simples para salão de beleza</p>
+  </header>
+
+  <main class="container">
+
+    <section class="card">
+      <h2>Resumo</h2>
+      <div class="resumo-grid">
+        <div class="resumo-item">
+          <span>Clientes</span>
+          <strong id="total-clientes">0</strong>
+        </div>
+        <div class="resumo-item">
+          <span>Profissionais</span>
+          <strong id="total-profissionais">0</strong>
+        </div>
+        <div class="resumo-item">
+          <span>Serviços</span>
+          <strong id="total-servicos">0</strong>
+        </div>
+        <div class="resumo-item">
+          <span>Agendamentos</span>
+          <strong id="total-agendamentos">0</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTE -->
+    <section class="card">
+      <h2>Novo Cliente</h2>
+      <form id="form-cliente">
+        <input type="text" id="cliente_nome" placeholder="Nome" required />
+        <input type="text" id="cliente_telefone" placeholder="Telefone" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <!-- PROFISSIONAL -->
+    <section class="card">
+      <h2>Novo Profissional</h2>
+      <form id="form-profissional">
+        <input type="text" id="prof_nome" placeholder="Nome" required />
+        <input type="text" id="prof_telefone" placeholder="Telefone" required />
+        <input type="text" id="prof_servico" placeholder="Especialidade" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <!-- SERVIÇO -->
+    <section class="card">
+      <h2>Novo Serviço</h2>
+      <form id="form-servico">
+        <input type="text" id="servico_nome" placeholder="Nome do serviço" required />
+        <input type="number" id="servico_preco" placeholder="Preço" required />
+        <input type="number" id="servico_duracao" placeholder="Duração (min)" required />
+        <button type="submit">Cadastrar Serviço</button>
+      </form>
+    </section>
+
+    <!-- AGENDAMENTO -->
+    <section class="card">
+      <h2>Novo Agendamento</h2>
+
+      <form id="form-agendamento">
+        <select id="cliente_id" required></select>
+        <select id="profissional_id" required></select>
+        <select id="servico_select" required></select>
+
+        <input type="date" id="data" required />
+        <input type="time" id="hora" required />
+
+        <button type="submit">Agendar</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Agenda</h2>
+      <button id="btn-carregar-agenda">Atualizar</button>
+      <ul id="lista-agenda"></ul>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

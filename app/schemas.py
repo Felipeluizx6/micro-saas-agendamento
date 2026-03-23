@@ -1,4 +1,36 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, EmailStr
+
+
+# =========================
+# AUTH / EMPRESA / USUÁRIO
+# =========================
+
+class RegisterRequest(BaseModel):
+    nome: str
+    email: EmailStr
+    senha: str
+    empresa_nome: str
+    empresa_email: EmailStr | None = None
+    empresa_telefone: str | None = None
+
+
+class LoginRequest(BaseModel):
+    email: EmailStr
+    senha: str
+
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class UsuarioResponse(BaseModel):
+    id: int
+    nome: str
+    email: EmailStr
+    empresa_id: int
+
+    model_config = ConfigDict(from_attributes=True)
 
 
 # =========================
@@ -38,7 +70,7 @@ class ClienteResponse(BaseModel):
 
 
 # =========================
-# SERVIÇOS (NOVO)
+# SERVIÇOS
 # =========================
 
 class ServicoCreate(BaseModel):
@@ -65,7 +97,7 @@ class AgendamentoCreate(BaseModel):
     profissional_id: int
     data: str
     hora: str
-    servico: str  # ainda evoluir para servico_id
+    servico: str
 
 
 class AgendamentoResponse(BaseModel):
